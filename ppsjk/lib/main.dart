@@ -12,7 +12,12 @@ class MyApp extends StatelessWidget{
        // useMaterial3: true,
         appBar: AppBar(
           title: Text("SUNITH"),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.lightBlue,
+        ),
+        body: Center(
+          child: Text("WELLCOME TO Bdoor",
+            style: TextStyle(fontSize: 20.0),
+          ),
         ),
       ),
     );
