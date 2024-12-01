@@ -14,8 +14,22 @@ class App extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  int count = 20;
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  int count = 0;
+
+  void increment(){
+    setState(() {
+      count = count + 1;
+      print(count);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +42,8 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'aaaaa bbbbb ccccc',
-                style: TextStyle(fontSize: 25.0),
+              'aaaaa bbbbb ccccc',
+              style: TextStyle(fontSize: 25.0),
             ),
             Text(
               '$count',
@@ -39,8 +53,8 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          child: Icon(Icons.add),
+        onPressed: increment,
+        child: Icon(Icons.add),
       ),
     );
   }
