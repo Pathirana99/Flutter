@@ -15,6 +15,7 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  int count = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 25.0),
             ),
             Text(
-              '0',
+              '$count',
               style: Theme.of(context).textTheme.displaySmall,
             ),
           ],
