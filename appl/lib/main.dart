@@ -58,6 +58,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
                 'Hello wellcome to new',
@@ -69,6 +70,10 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+              onPressed: (){},
+              child: Icon(Icons.add),
       ),
     );
   }
