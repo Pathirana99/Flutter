@@ -56,6 +56,20 @@ class MyHomePage extends StatelessWidget {
         fit: BoxFit.cover,
         ),
       ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+                'Hello wellcome to new',
+                style: TextStyle(fontSize: 25.0),
+            ),
+            Text(
+              '0',
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
