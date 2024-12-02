@@ -20,16 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  int count = 0;
-
-  void increment(){
-    setState(() {
-      count = count + 1;
-      print(count);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
