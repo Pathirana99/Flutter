@@ -1,4 +1,5 @@
 
+import 'package:appl/screens/secound_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +29,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_){
+                return SecoundScreen();
+              }
+              ));
+          //Navigator.of(context).pushNamed('/secound');
+        },
         child: Icon(Icons.add),
       ),
     );

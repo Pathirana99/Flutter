@@ -13,6 +13,9 @@ class App extends StatelessWidget {
       title: "Bdoor",
       //home: SecoundScreen(),
       home: HomePage(title: 'Flutter navigation'),
+      routes: <String,WidgetBuilder>{
+        '/secound': (context) => SecoundScreen()
+      },
     );
   }
 }
