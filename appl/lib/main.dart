@@ -56,6 +56,39 @@ class MyHomePage extends StatelessWidget {
         fit: BoxFit.cover,
         ),
       ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          ListTile(
+            leading: Icon(Icons.brightness_4),
+            title: Text('Brightness Auto'),
+            subtitle: Text('Adjest the brightness'),
+          ),
+        ],
+      ),
     );
   }
 }
+// Center(
+// child: Column(
+// mainAxisAlignment: MainAxisAlignment.center,
+// children: [
+// Text(
+// 'tist view',
+// style: Theme.of(context).textTheme.displaySmall,
+// ),
+// Container(
+// height: 200,
+// color: Colors.blue,
+// ),
+// Container(
+// height: 200,
+// color: Colors.grey,
+// ),
+// Container(
+// height: 200,
+// color: Colors.orange,
+// ),
+// ],
+// ),
+// ),
