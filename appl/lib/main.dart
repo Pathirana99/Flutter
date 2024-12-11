@@ -63,18 +63,22 @@ class MyHomePage extends StatelessWidget {
             leading: Icon(Icons.brightness_4),
             title: Text('Brightness Auto'),
             subtitle: Text('Adjest the brightness'),
+            trailing: Icon(Icons.menu),
+            onTap: (){},
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.image),
             title: Text('Change Image'),
             subtitle: Text('change image'),
+            trailing: Icon(Icons.menu),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.image),
             title: Text('Change Image'),
             subtitle: Text('change image'),
+            trailing: Icon(Icons.menu),
           ),
           Divider(),
           ListTile(
