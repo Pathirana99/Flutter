@@ -92,39 +92,6 @@ class MyHomePage extends StatelessWidget {
             leading: Icon(Icons.cloud_upload),
             title: Text('Backups'),
           ),
-          ListTile(
-            leading: Icon(Icons.brightness_4),
-            title: Text('Brightness Auto'),
-            subtitle: Text('Adjest the brightness'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.image),
-            title: Text('Change Image'),
-            subtitle: Text('change image'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.image),
-            title: Text('Change Image'),
-            subtitle: Text('change image'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.image),
-            title: Text('Change Image'),
-            subtitle: Text('change image'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.image),
-            title: Text('Change Image'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.cloud_upload),
-            title: Text('Backups'),
-          ),
         ],
       ),
     );
