@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
@@ -34,28 +35,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Bdoor"),
-        backgroundColor: Color(0xFF02FFF7),
-        leading: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.menu)
-        ),
-        actions: [
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search)
-          ),
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.more_vert)
-          ),
-        ],
-        flexibleSpace: Image.asset("assests/img1.jpg",
-        fit: BoxFit.cover,
-        ),
-      ),
-    );
+   return MaterialApp();
   }
 }
