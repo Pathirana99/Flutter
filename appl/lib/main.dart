@@ -1,34 +1,26 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
+import 'package:appl/screens/secound_screen.dart';
 import 'package:flutter/material.dart';
+import 'screens/home_page.dart';
 
-void main() {
-  runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(), // Wrap your app
-      ),
-  );
+void main(){
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
+
+      title: "Bdoor",
+      //home: SecoundScreen(),
+      home: HomePage(title: 'Flutter navigation'),
+      routes: <String,WidgetBuilder>{
+        '/secound': (context) => SecoundScreen()
+      },
     );
   }
 }
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
   List<String> get items => List<String>.generate(100, (index) => 'Item $index');
@@ -38,22 +30,47 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Bdoor"),
         backgroundColor: Color(0xFF02FFF7),
-        leading: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.menu)
-        ),
-        actions: [
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search)
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              maxLength: 4,
+              onSubmitted: (tes){
+                print(tes);
+              },
+              keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 22.0),
+            ),
           ),
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.more_vert)
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              autofocus: true,
+              maxLength: 4,
+              obscureText: true,
+              keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 22.0),
+              //enabled: false,
+              cursorColor: Colors.red,
+            ),
           ),
         ],
-        flexibleSpace: Image.asset("assests/img1.jpg",
-        fit: BoxFit.cover,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+                'Hello wellcome to new',
+                style: TextStyle(fontSize: 25.0),
+            ),
+            Text(
+              '0',
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
+          ],
         ),
       ),
       body: ListView.builder(
