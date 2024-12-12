@@ -1,6 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import './form-test.dart';
+import './form.dart';
 
 void main() {
   runApp(
@@ -26,37 +28,20 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const FormTest(),
     );
   }
 }
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Bdoor"),
-        backgroundColor: Color(0xFF02FFF7),
-        leading: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.menu)
-        ),
-        actions: [
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search)
-          ),
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.more_vert)
-          ),
-        ],
-        flexibleSpace: Image.asset("assests/img1.jpg",
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
+    return const Placeholder();
   }
 }
