@@ -20,6 +20,10 @@ class App extends StatelessWidget {
     );
   }
 }
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+  List<String> get items => List<String>.generate(100, (index) => 'Item $index');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,11 +73,14 @@ class App extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-              onPressed: (){},
-              child: Icon(Icons.add),
+      body: ListView.builder(
+        itemCount: items.length,
+          itemBuilder: (context, index){
+          return ListTile(
+            title: Text(items[index]),
+          );
+          },
       ),
     );
   }
 }
-
