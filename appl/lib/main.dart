@@ -54,6 +54,25 @@ class App extends StatelessWidget {
           ),
         ],
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+                'Hello wellcome to new',
+                style: TextStyle(fontSize: 25.0),
+            ),
+            Text(
+              '0',
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+              onPressed: (){},
+              child: Icon(Icons.add),
+      ),
     );
   }
 }
