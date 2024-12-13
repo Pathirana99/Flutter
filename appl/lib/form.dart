@@ -77,13 +77,16 @@ class _FormScreenState extends State<FormScreen> {
         child: Form(
           key: _formKey,
           child: Container(
+            padding: const EdgeInsets.all(24.0),
             margin: const EdgeInsets.all(24.0),
             child: Column(
               children: [
                 _buildNameField(),
                 _buildAdressField(),
                 _buildPhoneNoField(),
-                SizedBox(height: 50),
+                SizedBox(
+                    height: 70,
+                ),
                 Container(
                   width: 150,
                   child: ElevatedButton(
