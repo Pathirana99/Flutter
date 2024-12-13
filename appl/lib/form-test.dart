@@ -31,8 +31,8 @@ class _FormTestState extends State<FormTest> {
                  decoration: InputDecoration(hintText: 'Name'),
                  maxLines: 1,
                  validator:(text){
-                   if(text!.isEmpty){
-                     return'can not empty';
+                   if (text == null || text.isEmpty) { // Null check added
+                     return 'Cannot be empty';
                    }
                    return null;
                  },
@@ -45,16 +45,14 @@ class _FormTestState extends State<FormTest> {
                 ),
                 Container(
                   child: ElevatedButton(
-                    onPressed: (){},
-                    // onPressed: () {
-                    //    if (_formKey.currentState!.validate()) {
-                    //      _formKey.currentState!.save();
-                    //     ScaffoldMessenger.of(context).showSnackBar(
-                    //       SnackBar(content: Text('Name saved: $name')),
-                    //     );
-                    //   }
-                    // },
-                   // child: Text('Save'),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Name saved: $name')),
+                        );
+                      }
+                    },
                     child: Text('Saved'),
                   ),
                 ),
