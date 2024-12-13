@@ -12,6 +12,24 @@ class _FormTestState extends State<FormTest> {
 
   late String name;
 
+  Widget _buildNameField(){
+    return TextFormField(
+      maxLength: 20,
+      decoration: InputDecoration(hintText: 'Name'),
+      maxLines: 1,
+      validator: (text) {
+        if (text == null || text.isEmpty) {
+          return 'Cannot be empty';
+        }
+        return null;
+      },
+      onSaved: (text) {
+        name = text!;
+      },
+    );
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,40 +38,26 @@ class _FormTestState extends State<FormTest> {
         title: Text('Form - Tutorial 14'),
       ),
       body: SingleChildScrollView(
-        key: _formKey,
         child: Form(
+          key: _formKey, // Associate the _formKey with the Form widget
           child: Container(
             margin: const EdgeInsets.all(24.0),
             child: Column(
               children: [
-               TextFormField(
-                 maxLength: 20,
-                 decoration: InputDecoration(hintText: 'Name'),
-                 maxLines: 1,
-                 validator:(text){
-                   if (text == null || text.isEmpty) { // Null check added
-                     return 'Cannot be empty';
-                   }
-                   return null;
-                 },
-                 onSaved: (text){
-                   name = text!;
-                 },
-               ),
+                _buildNameField(),
+                _buildNameField(),
                 SizedBox(
                   height: 100,
                 ),
                 Container(
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      if(_formKey.currentState!.validate()){
                         _formKey.currentState!.save();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Name saved: $name')),
-                        );
+                        print(name);
                       }
                     },
-                    child: Text('Saved'),
+                    child: Text('Save'),
                   ),
                 ),
               ],
