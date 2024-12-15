@@ -16,8 +16,7 @@ class _NetworkRequestState extends State<NetworkRequest> {
     String bio = await Future.delayed(Duration(seconds: 2), () {
       return 'name: sahan, age: 99';
     });
-    print('sunith');
-   // print(email + " - " + bio);
+    print(email + " - " + bio);
   }
 
   @override
