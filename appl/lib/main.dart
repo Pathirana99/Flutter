@@ -1,3 +1,4 @@
+import 'package:appl/network_request.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -27,20 +28,47 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const FormScreen(),
+      home: Home(),
     );
   }
 }
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        title: Text("Asynchronous Programming"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Asynchronous Programming',
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  child: Text('CLICK ME'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NetworkRequest()),
+                    );
+                  }),
+            )
+            // RaisedButton(child: Text('GET DATA'), onPressed: () {})
+          ],
+        ),
+      ),
+    );
   }
 }
