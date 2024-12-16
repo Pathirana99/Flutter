@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:appl/network_request.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -32,8 +34,23 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+class Home extends StatefulWidget {
+  const Home({super.key});
 
-class Home extends StatelessWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  StreamController _controller = StreamController();
+
+  addStreamData() async{
+    for (var i = 0; i < 10; i++){
+      await Future.delayed(Duration(seconds: 2));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +69,7 @@ class Home extends StatelessWidget {
               '0',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            ],
+          ],
         ),
       ),
     );
