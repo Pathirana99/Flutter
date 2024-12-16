@@ -7,17 +7,21 @@ class NetworkRequest extends StatefulWidget {
 
 class _NetworkRequestState extends State<NetworkRequest> {
   // simulate network NetworkRequest
-  void getData() async {
+  Future<String> getData() async {
     // simulate netwrok request to get user Email
-    String email = await Future.delayed(Duration(seconds: 5), () {
-      return 'sahan@gmail.com';
+    String email = await Future.delayed(Duration(seconds: 3), () {
+      return 'sjk@gmail.com';
     });
-    
+    // print(email);
+    return email;
   }
-
+  Future<void> getEmail()async{
+    print(await getData());
+  }
   @override
   void initState() {
     super.initState();
+    getEmail();
     getData();
     print('other codes');
   }
