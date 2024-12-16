@@ -45,28 +45,14 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Asynchronous Programming',
-                style: TextStyle(
-                  fontSize: 22,
-                ),
-              ),
+            const Text(
+              'Stream Item',
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                  child: Text('CLICK ME'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NetworkRequest()),
-                    );
-                  }),
-            )
-            // RaisedButton(child: Text('GET DATA'), onPressed: () {})
-          ],
+            Text(
+              '0',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            ],
         ),
       ),
     );
