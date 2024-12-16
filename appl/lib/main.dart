@@ -60,17 +60,22 @@ class _HomeState extends State<Home> {
         title: Text("Asynchronous Programming"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Stream Item',
-            ),
-            Text(
-              '0',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: StreamBuilder(
+          stream: _controller.stream,
+          builder: (context, snapshot) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text(
+                  'Stream Item',
+                ),
+                Text(
+                  '0',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            );
+          }
         ),
       ),
     );
