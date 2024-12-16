@@ -48,6 +48,7 @@ class _HomeState extends State<Home> {
   addStreamData() async{
     for (var i = 0; i < 10; i++){
       await Future.delayed(Duration(seconds: 2));
+      _controller.sink.add(i);    
     }
   }
 
