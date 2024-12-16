@@ -52,6 +52,27 @@ class _HomeState extends State<Home> {
     }
   }
 
+  Stream<int> addStreamData2() async*{
+    for (var i = 0; i < 10; i++){
+      await Future.delayed(Duration(seconds: 2));
+      yield i;
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.close();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    addStreamData2();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,9 +82,25 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
         child: StreamBuilder(
-          stream: _controller.stream,
+          stream: addStreamData2(),
           builder: (context, snapshot) {
-            
+            if(snapshot.hasError){
+              return Text("Error");
+            } else if (snapshot.connectionState == ConnectionState.waiting){
+              return CircularProgressIndicator.adaptive();
+            }
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text(
+                  'Stream Item',
+                ),
+                Text(
+                  '${snapshot.data}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            );
           }
         ),
       ),
