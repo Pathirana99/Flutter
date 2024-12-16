@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:appl/network_request.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './form.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(
@@ -30,12 +30,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: Home(),
+      home: const Home(title: 'Flutter Builder',),
     );
   }
 }
 class Home extends StatefulWidget {
-  const Home({super.key});
+
+  const Home({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   State<Home> createState() => _HomeState();
@@ -43,35 +45,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  StreamController _controller = StreamController();
-
-  addStreamData() async{
-    for (var i = 0; i < 10; i++){
-      await Future.delayed(Duration(seconds: 2));
-      _controller.sink.add(i);    
-    }
-  }
-
-  Stream<int> addStreamData2() async*{
-    for (var i = 0; i < 10; i++){
-      await Future.delayed(Duration(seconds: 2));
-      yield i;
-    }
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _controller.close();
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    addStreamData2();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,30 +52,6 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
         title: Text("Asynchronous Programming"),
-      ),
-      body: Center(
-        child: StreamBuilder(
-          stream: addStreamData2(),
-          builder: (context, snapshot) {
-            if(snapshot.hasError){
-              return Text("Error");
-            } else if (snapshot.connectionState == ConnectionState.waiting){
-              return CircularProgressIndicator.adaptive();
-            }
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'Stream Item',
-                ),
-                Text(
-                  '${snapshot.data}',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            );
-          }
-        ),
       ),
     );
   }
