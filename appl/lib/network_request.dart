@@ -12,11 +12,7 @@ class _NetworkRequestState extends State<NetworkRequest> {
     String email = await Future.delayed(Duration(seconds: 5), () {
       return 'sahan@gmail.com';
     });
-
-    String bio = await Future.delayed(Duration(seconds: 2), () {
-      return 'name: sahan, age: 99';
-    });
-    print(email + " - " + bio);
+    
   }
 
   @override
