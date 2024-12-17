@@ -45,6 +45,20 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  Future getUsers() async{
+    var url = Uri.parse('https://randomuser.me/api/?results=20');
+    late http.Response response;
+    try{
+      response = await http.get(url);
+      if(response.statusCode == 200){
+
+      }else{
+
+      }
+    }catch(e){
+       return Future.error(e.toString());
+    }
+}
 
   @override
   Widget build(BuildContext context) {
