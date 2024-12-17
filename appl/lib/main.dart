@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './form.dart';
 import 'package:http/http.dart' as http;
+import '';
 
 void main() {
   runApp(
@@ -49,6 +50,7 @@ class _HomeState extends State<Home> {
   Future getUsers() async{
     var url = Uri.parse('https://randomuser.me/api/?results=20');
     late http.Response response;
+    List<User> users = [];
     try{
       response = await http.get(url);
       if(response.statusCode == 200){
