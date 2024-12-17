@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './form.dart';
 import 'package:http/http.dart' as http;
-import '';
+import 'models/Users.dart';
 
 void main() {
   runApp(
@@ -47,7 +47,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  Future getUsers() async{
+  Future<List<User>> getUsers() async{
     var url = Uri.parse('https://randomuser.me/api/?results=20');
     late http.Response response;
     List<User> users = [];
@@ -62,6 +62,8 @@ class _HomeState extends State<Home> {
           var name = item['name']['first']+" "+ item['name']['last'];
           var id = item['login']['uuid'];
           var avatar = item['picture']['large'];
+          User user = User(id, name, email, avatar);
+          users.add(user);
         }
       }else{
         return Future.error("Somthing went wrong, ${response.statusCode}");
@@ -69,6 +71,7 @@ class _HomeState extends State<Home> {
     }catch(e){
        return Future.error(e.toString());
     }
+    return users;
 }
 
   @override
@@ -77,6 +80,35 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
         title: Text("Asynchronous Programming"),
+      ),
+      body: FutureBuilder(
+          future: getUsers(),
+          builder: (BuildContext context, AsyncSnapshot snapshot){
+        if(snapshot.connectionState == ConnectionState.waiting){
+          return const Center(
+            child: Text('Waiting'),
+          );
+        }else{
+          if(snapshot.hasError){
+            return Text(snapshot.error.toString());
+          }else{
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context, int index){
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage:
+                    NetworkImage(snapshot.data[index].avatar),
+                  ),
+                  title: Text(snapshot.data[index].name),
+                  subtitle: Text(snapshot.data[index].email),
+                  onTap: (){},
+                );
+              }
+            );
+          }
+        }
+      },
       ),
     );
   }
