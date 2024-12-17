@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:appl/network_request.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -51,9 +52,17 @@ class _HomeState extends State<Home> {
     try{
       response = await http.get(url);
       if(response.statusCode == 200){
+        Map peopleData = jsonDecode(response.body);
+        List<dynamic> peoples = peopleData["results"];
 
+        for(var item in peoples){
+          var email = item['email'];
+          var name = item['name']['first']+" "+ item['name']['last'];
+          var id = item['login']['uuid'];
+          var avatar = item['picture']['large'];
+        }
       }else{
-
+        return Future.error("Somthing went wrong, ${response.statusCode}");
       }
     }catch(e){
        return Future.error(e.toString());
