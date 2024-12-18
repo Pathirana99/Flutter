@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import './form.dart';
 import 'package:http/http.dart' as http;
 import 'models/Users.dart';
-
+import 'screens/detail.dart';
 void main() {
   runApp(
     DevicePreview(
@@ -102,7 +102,9 @@ class _HomeState extends State<Home> {
                   ),
                   title: Text(snapshot.data[index].name),
                   subtitle: Text(snapshot.data[index].email),
-                  onTap: (){},
+                  onTap: (){
+                    
+                  },
                 );
               }
             );
