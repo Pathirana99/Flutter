@@ -50,7 +50,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   Future<List<User>> getUsers() async{
-    var url = Uri.parse('https://randomuser.me/api/?results=20');
+    var url = Uri.parse('https://randomuser.mee/api/?results=20');
     late http.Response response;
     List<User> users = [];
     try{
