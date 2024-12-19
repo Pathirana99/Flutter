@@ -84,22 +84,31 @@ class _HomeState extends State<Home> {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-
-              child: TextField(
-                onChanged: (value) {
-                  setState(() {
-                    searchQuery = value;
-                  });
-                },
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.purple.shade800,
-                  hintText: 'Search...',
-                  prefixIcon: const Icon(Icons.search, color: Colors.purple),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide.none,
+              child: Container(
+                width: 335,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Colors.purple.shade800,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      searchQuery = value;
+                    });
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Search...',
+                    prefixIcon: const Icon(Icons.search, color: Colors.white),
+                    filled: true,
+                    fillColor: Colors.transparent,
+                    border: InputBorder.none, // Removes the default border
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 20, // Adjust the vertical padding
+                      horizontal: 16, // Adjust horizontal padding
+                    ),
                   ),
+                  style: const TextStyle(color: Colors.white), // Adjust text color
                 ),
               ),
             ),
