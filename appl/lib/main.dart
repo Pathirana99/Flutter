@@ -40,27 +40,27 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final List<Map<String, dynamic>> rowData = [
     {
-      'icon': Icons.attach_money,
+      'icon': Icons.monetization_on_rounded,
       'text': 'Manage Your Money',
-      'iconColor': Colors.white,
+      'iconColor': Color(0xFF00FF00),
       'textColor': Color(0xFF00FF00),
     },
     {
-      'icon': Icons.monetization_on_outlined,
-      'text': 'Manage Your Money',
-      'iconColor': Color(0xFF00FF00),
+      'icon': Icons.summarize_outlined,
+      'text': 'Summery',
+      'iconColor': Color(0xFFF89757),
       'textColor': Color(0xFFF89757),
     },
     {
-      'icon': Icons.monetization_on_outlined,
-      'text': 'Manage Your Money',
-      'iconColor': Color(0xFFF89757),
+      'icon': Icons.calendar_today,
+      'text': 'Calender',
+      'iconColor': Color(0xFFFF0DB2),
       'textColor': Color(0xFFFF0DB2),
     },
     {
-      'icon': Icons.monetization_on_outlined,
-      'text': 'Manage Your Money',
-      'iconColor': Color(0xFFFF0DB2),
+      'icon': Icons.note_alt_outlined,
+      'text': 'Notes',
+      'iconColor': Color(0xFF007BFF),
       'textColor': Color(0xFF007BFF),
     },
   ];
