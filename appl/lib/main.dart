@@ -64,86 +64,9 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-                child: Container(
-                  color: Colors.purple.shade800,
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                child: Container(
-                  color: Colors.purple.shade800,
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                child: Container(
-                  color: Colors.purple.shade800,
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
                 child: Container(
                   color: Colors.purple.shade800,
                   padding: const EdgeInsets.all(10),
