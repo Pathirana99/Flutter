@@ -90,6 +90,9 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
+                  border: Border(
+                      bottom: BorderSide(color: Colors.white)
+                  ),
                 ),
                 child: TextField(
                   onChanged: (value) {
@@ -103,23 +106,23 @@ class _HomeState extends State<Home> {
                     prefixIcon: const Icon(Icons.search, color: Colors.white),
                     filled: true,
                     fillColor: Colors.transparent,
-                    border: InputBorder.none, // Removes the default border
+                    border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
-                      vertical: 20, // Adjust the vertical padding
-                      horizontal: 16, // Adjust horizontal padding
+                      vertical: 20,
+                      horizontal: 16,
                     ),
                   ),
-                  style: const TextStyle(color: Colors.white), // Adjust text color
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0.0, left: 40.0, right: 40.0),
-              child: Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 0.0, left: 40.0, right: 40.0),
+            //   child: Divider(
+            //     color: Colors.white,
+            //     thickness: 2,
+            //   ),
+            // ),
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(vertical: 10),
