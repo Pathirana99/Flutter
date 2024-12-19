@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
     // Filter data based on the search query
     final filteredData = rowData
         .where((item) =>
-        item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
+            item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
         .toList();
 
     return Container(
@@ -90,14 +90,12 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border(
-                      bottom: BorderSide(color: Colors.white)
-                  ),
+                  border: Border(bottom: BorderSide(color: Colors.white)),
                 ),
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
-                     // searchQuery = value;
+                      // searchQuery = value;
                     });
                   },
                   decoration: InputDecoration(
