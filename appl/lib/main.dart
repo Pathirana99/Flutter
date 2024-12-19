@@ -88,7 +88,6 @@ class _HomeState extends State<Home> {
                 width: 331,
                 height: 56,
                 decoration: BoxDecoration(
-
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   border: Border(bottom: BorderSide(color: Colors.white)),
@@ -103,7 +102,7 @@ class _HomeState extends State<Home> {
                     hintText: 'Search your day...',
                     hintStyle: TextStyle(color: Colors.white70),
                     prefixIcon: const Icon(Icons.search, color: Colors.white),
-                   // filled: true,
+                    // filled: true,
                     fillColor: Colors.transparent,
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
