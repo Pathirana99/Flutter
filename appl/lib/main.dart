@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
-                      // searchQuery = value;
+                      //searchQuery = value;
                     });
                   },
                   decoration: InputDecoration(
@@ -114,18 +114,45 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(top: 0.0, left: 40.0, right: 40.0),
-            //   child: Divider(
-            //     color: Colors.white,
-            //     thickness: 2,
-            //   ),
-            // ),
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                itemCount: filteredData.length,
+                itemCount: filteredData.length + 1, // Add 1 for the new row
                 itemBuilder: (context, index) {
+                  // Check if it's the last index for the new row
+                  if (index == filteredData.length) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 10),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.purple.shade800,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.new_releases,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'New Row',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 10),
