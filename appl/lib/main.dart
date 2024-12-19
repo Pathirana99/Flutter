@@ -68,7 +68,135 @@ class Home extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
                 child: Container(
-                  color: Colors.purple.shade800,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade800,
+                    borderRadius: BorderRadius.circular(16), // Add curved edges
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sunith p pathirana',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade800,
+                    borderRadius: BorderRadius.circular(16), // Add curved edges
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sunith p pathirana',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade800,
+                    borderRadius: BorderRadius.circular(16), // Add curved edges
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sunith p pathirana',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade800,
+                    borderRadius: BorderRadius.circular(16), // Add curved edges
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sunith p pathirana',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade800,
+                    borderRadius: BorderRadius.circular(16), // Add curved edges
+                  ),
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
