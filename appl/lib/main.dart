@@ -30,18 +30,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final List<Map<String, dynamic>> rowData = [
+    {'icon': Icons.account_balance, 'text': 'Bank Account'},
+    {'icon': Icons.shopping_cart, 'text': 'Shopping'},
+    {'icon': Icons.fastfood, 'text': 'Dining'},
+    {'icon': Icons.directions_car, 'text': 'Transport'},
+  ];
+
+  String searchQuery = '';
+
+  @override
   Widget build(BuildContext context) {
-    // Data for dynamic rows
-    final List<Map<String, dynamic>> rowData = [
-      {'icon': Icons.account_balance, 'text': 'Bank Account'},
-      {'icon': Icons.shopping_cart, 'text': 'Shopping'},
-      {'icon': Icons.fastfood, 'text': 'Dining'},
-      {'icon': Icons.directions_car, 'text': 'Transport'},
-    ];
+    // Filter data based on the search query
+    final filteredData = rowData
+        .where((item) =>
+        item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
+        .toList();
 
     return Container(
       decoration: const BoxDecoration(
@@ -68,41 +80,69 @@ class Home extends StatelessWidget {
             ),
           ),
         ),
-        body: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          itemCount: rowData.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              child: Container(
-                height: 90,
-                decoration: BoxDecoration(
-                  color: Colors.purple.shade800,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      rowData[index]['icon'],
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      rowData[index]['text'],
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    searchQuery = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.purple.shade800,
+                  hintText: 'Search...',
+                  prefixIcon: const Icon(Icons.search, color: Colors.purple),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
               ),
-            );
-          },
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                itemCount: filteredData.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 10),
+                    child: Container(
+                      height: 90,
+                      decoration: BoxDecoration(
+                        color: Colors.purple.shade800,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            filteredData[index]['icon'],
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            filteredData[index]['text'],
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
