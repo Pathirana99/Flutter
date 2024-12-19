@@ -14,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,6 +35,15 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Data for dynamic rows
+    final List<Map<String, dynamic>> rowData = [
+      {'icon': Icons.ad_units, 'text': 'Sunith P Pathirana'},
+      {'icon': Icons.account_balance, 'text': 'Bank Account'},
+      {'icon': Icons.shopping_cart, 'text': 'Shopping'},
+      {'icon': Icons.fastfood, 'text': 'Dining'},
+      {'icon': Icons.directions_car, 'text': 'Transport'},
+    ];
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -49,203 +57,55 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Center(
-              child: Text(
-            'MoneY',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
+          title: const Center(
+            child: Text(
+              'MoneY',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade800,
-                    borderRadius: BorderRadius.circular(16), // Add curved edges
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade800,
-                    borderRadius: BorderRadius.circular(16), // Add curved edges
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade800,
-                    borderRadius: BorderRadius.circular(16), // Add curved edges
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade800,
-                    borderRadius: BorderRadius.circular(16), // Add curved edges
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade800,
-                    borderRadius: BorderRadius.circular(16), // Add curved edges
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.ad_units,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Sunith p pathirana',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
           ),
+        ),
+        body: ListView.builder(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          itemCount: rowData.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: Container(
+                height: 90,
+                decoration: BoxDecoration(
+                  color: Colors.purple.shade800,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      rowData[index]['icon'],
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      rowData[index]['text'],
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
   }
 }
-// appBar: AppBar(
-//   backgroundColor: Colors.transparent,
-//   // title: Center(
-//   //   child: Text(
-//   //       "MoneY",
-//   //       style: TextStyle(color: Colors.white,
-//   //           fontSize: 30,
-//   //           fontStyle:FontStyle.italic,
-//   //         fontWeight: FontWeight.bold,
-//   //       ),
-//   //   ),
-//   // ),
-//   leading: IconButton(
-//       onPressed: (){},
-//       icon: Icon(Icons.menu)
-//   ),
-//   actions: [
-//     IconButton(
-//         onPressed: (){},
-//         icon: Icon(Icons.search)
-//     ),
-//   ],
-// ),
