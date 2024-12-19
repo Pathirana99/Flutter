@@ -49,7 +49,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // Filter data based on the search query
     final filteredData = rowData
         .where((item) =>
             item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
@@ -102,7 +101,6 @@ class _HomeState extends State<Home> {
                     hintText: 'Search your day...',
                     hintStyle: TextStyle(color: Colors.white70),
                     prefixIcon: const Icon(Icons.search, color: Colors.white),
-                    // filled: true,
                     fillColor: Colors.transparent,
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
@@ -114,48 +112,61 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
+      SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                itemCount: filteredData.length + 1, // Add 1 for the new row
+                itemCount: filteredData.length + 2,
                 itemBuilder: (context, index) {
-                  // Check if it's the last index for the new row
                   if (index == filteredData.length) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 0, vertical: 10),
-                      child: Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade800,
-                          borderRadius: BorderRadius.circular(16),
+                    return const SizedBox(height: 50);
+                  } else if (index == filteredData.length + 1) {
+                    return Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.purple.shade800,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(16),
+                          topRight: Radius.circular(16),
                         ),
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.new_releases,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'New Row',
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Center(
+                            child: Text(
+                              'MoneY',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 24,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Center(
+                            child: Text(
+                              '...Save Your Future...',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Icon(
+                              Icons.copyright,
+                              color: Colors.white,
+                             size: 18,
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   }
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 10),
+                        horizontal: 40, vertical: 15),
                     child: Container(
                       height: 90,
                       decoration: BoxDecoration(
