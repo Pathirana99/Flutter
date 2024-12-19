@@ -85,20 +85,21 @@ class _HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
-                width: 335,
+                width: 331,
                 height: 56,
                 decoration: BoxDecoration(
-                  color: Colors.purple.shade800,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
-                      searchQuery = value;
+                     // searchQuery = value;
                     });
                   },
                   decoration: InputDecoration(
-                    hintText: 'Search...',
+                    hintText: 'Search your day...',
+                    hintStyle: TextStyle(color: Colors.white70),
                     prefixIcon: const Icon(Icons.search, color: Colors.white),
                     filled: true,
                     fillColor: Colors.transparent,
@@ -110,6 +111,13 @@ class _HomeState extends State<Home> {
                   ),
                   style: const TextStyle(color: Colors.white), // Adjust text color
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 0.0, left: 40.0, right: 40.0),
+              child: Divider(
+                color: Colors.white,
+                thickness: 2,
               ),
             ),
             Expanded(
