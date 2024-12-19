@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      title: 'Flutter Demo',
+      title: 'Budget',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
@@ -39,10 +39,30 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List<Map<String, dynamic>> rowData = [
-    {'icon': Icons.account_balance, 'text': 'Bank Account'},
-    {'icon': Icons.shopping_cart, 'text': 'Shopping'},
-    {'icon': Icons.fastfood, 'text': 'Dining'},
-    {'icon': Icons.directions_car, 'text': 'Transport'},
+    {
+      'icon': Icons.attach_money,
+      'text': 'Manage Your Money',
+      'iconColor': Colors.white,
+      'textColor': Color(0xFF00FF00),
+    },
+    {
+      'icon': Icons.monetization_on_outlined,
+      'text': 'Manage Your Money',
+      'iconColor': Color(0xFF00FF00),
+      'textColor': Color(0xFFF89757),
+    },
+    {
+      'icon': Icons.monetization_on_outlined,
+      'text': 'Manage Your Money',
+      'iconColor': Color(0xFFF89757),
+      'textColor': Color(0xFFFF0DB2),
+    },
+    {
+      'icon': Icons.monetization_on_outlined,
+      'text': 'Manage Your Money',
+      'iconColor': Color(0xFFFF0DB2),
+      'textColor': Color(0xFF007BFF),
+    },
   ];
 
   String searchQuery = '';
@@ -51,7 +71,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final filteredData = rowData
         .where((item) =>
-            item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
+        item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
         .toList();
 
     return Container(
@@ -71,7 +91,7 @@ class _HomeState extends State<Home> {
             child: Text(
               'MoneY',
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFFFFFFFF),
                 fontSize: 30,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold,
@@ -94,7 +114,7 @@ class _HomeState extends State<Home> {
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
-                      //searchQuery = value;
+                      searchQuery = value;
                     });
                   },
                   decoration: InputDecoration(
@@ -112,7 +132,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-      SizedBox(height: 10),
+            SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: filteredData.length + 2,
@@ -156,7 +176,7 @@ class _HomeState extends State<Home> {
                             child: Icon(
                               Icons.copyright,
                               color: Colors.white,
-                             size: 18,
+                              size: 18,
                             ),
                           ),
                         ],
@@ -178,14 +198,14 @@ class _HomeState extends State<Home> {
                         children: [
                           Icon(
                             filteredData[index]['icon'],
-                            color: Colors.white,
+                            color: filteredData[index]['iconColor'],
                             size: 30,
                           ),
                           const SizedBox(width: 10),
                           Text(
                             filteredData[index]['text'],
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: filteredData[index]['textColor'] ,
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
                             ),
