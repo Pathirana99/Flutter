@@ -37,7 +37,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // Data for dynamic rows
     final List<Map<String, dynamic>> rowData = [
-      {'icon': Icons.ad_units, 'text': 'Sunith P Pathirana'},
       {'icon': Icons.account_balance, 'text': 'Bank Account'},
       {'icon': Icons.shopping_cart, 'text': 'Shopping'},
       {'icon': Icons.fastfood, 'text': 'Dining'},
