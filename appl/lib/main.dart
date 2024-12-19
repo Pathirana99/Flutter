@@ -88,6 +88,7 @@ class _HomeState extends State<Home> {
                 width: 331,
                 height: 56,
                 decoration: BoxDecoration(
+
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   border: Border(bottom: BorderSide(color: Colors.white)),
