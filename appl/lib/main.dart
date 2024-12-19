@@ -1,13 +1,6 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:appl/network_request.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import './form.dart';
-import 'package:http/http.dart' as http;
-import 'models/Users.dart';
-import 'screens/detail.dart';
 
 void main() {
   runApp(
