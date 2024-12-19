@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const Home(
-
-      ),
+      home: const Home(),
     );
   }
 }
@@ -38,10 +36,87 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        //bottom: Icon(Icons.menu),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.deepPurple, Colors.purple, Colors.deepPurple],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          stops: [0.01, 0.5, 1],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Center(
+              child: Text(
+            'MoneY',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                child: Container(
+                  color: Colors.purple.shade800,
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.ad_units,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sunith p pathirana',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+// appBar: AppBar(
+//   backgroundColor: Colors.transparent,
+//   // title: Center(
+//   //   child: Text(
+//   //       "MoneY",
+//   //       style: TextStyle(color: Colors.white,
+//   //           fontSize: 30,
+//   //           fontStyle:FontStyle.italic,
+//   //         fontWeight: FontWeight.bold,
+//   //       ),
+//   //   ),
+//   // ),
+//   leading: IconButton(
+//       onPressed: (){},
+//       icon: Icon(Icons.menu)
+//   ),
+//   actions: [
+//     IconButton(
+//         onPressed: (){},
+//         icon: Icon(Icons.search)
+//     ),
+//   ],
+// ),
