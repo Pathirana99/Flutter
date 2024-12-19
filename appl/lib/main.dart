@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
                     hintText: 'Search your day...',
                     hintStyle: TextStyle(color: Colors.white70),
                     prefixIcon: const Icon(Icons.search, color: Colors.white),
-                    filled: true,
+                   // filled: true,
                     fillColor: Colors.transparent,
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
