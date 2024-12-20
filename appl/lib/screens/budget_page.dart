@@ -31,13 +31,16 @@ class _BudgetState extends State<Budget> {
               ),
               Align(
                 alignment: Alignment.center,
-                child: Text(
-                  'MoneY',
-                  style: const TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 30,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 40.0),
+                  child: Text(
+                    'MoneY',
+                    style: const TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
