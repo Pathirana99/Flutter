@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Budget extends StatefulWidget {
-  const Budget({super.key});
+class Summery extends StatefulWidget {
+  const Summery({super.key});
 
   @override
-  State<Budget> createState() => _BudgetState();
+  State<Summery> createState() => _SummeryState();
 }
 
-class _BudgetState extends State<Budget> {
+class _SummeryState extends State<Summery> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,7 +60,7 @@ class _BudgetState extends State<Budget> {
         ),
         body: Center(
           child: Text(
-            'Welcome to the Budget Page!',
+            'Welcome to the Summery Page!',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 24,

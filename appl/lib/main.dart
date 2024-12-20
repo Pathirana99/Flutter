@@ -2,6 +2,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './screens/budget_page.dart';
+import './screens/summery_page.dart';
+import './screens/calender_page.dart';
+import './screens/note_page.dart';
 
 void main() {
   runApp(
@@ -199,31 +202,67 @@ class _HomeState extends State<Home> {
                           );
                         }
                       },
-                      child: Container(
-                        height: 90,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade800,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              filteredData[index]['icon'],
-                              color: filteredData[index]['iconColor'],
-                              size: 30,
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              filteredData[index]['text'],
-                              style: TextStyle(
-                                color: filteredData[index]['textColor'],
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
+                      child: InkWell(
+                        onTap: () {
+                          if (filteredData[index]['text'] == 'Summery') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Summery(),
+                              ),
+                            );
+                          }
+                        },
+                        child: InkWell(
+                          onTap: () {
+                            if (filteredData[index]['text'] == 'Calender') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Calender(),
+                                ),
+                              );
+                            }
+                          },
+                          child: InkWell(
+                            onTap: () {
+                              if (filteredData[index]['text'] == 'Notes') {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Note(),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Container(
+                              height: 90,
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade800,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              padding: const EdgeInsets.all(10),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    filteredData[index]['icon'],
+                                    color: filteredData[index]['iconColor'],
+                                    size: 30,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    filteredData[index]['text'],
+                                    style: TextStyle(
+                                      color: filteredData[index]['textColor'],
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
