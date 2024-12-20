@@ -219,7 +219,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SecondPageModels(),
+                              builder: (context) => const Note(),
                             ),
                           );
                         }

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SecondPageModels extends StatefulWidget {
-  const SecondPageModels({super.key});
+  final String title;
+  final Widget content;
+
+  const SecondPageModels({
+    super.key,
+    required this.title,
+    required this.content,
+  });
 
   @override
   State<SecondPageModels> createState() => _SecondPageModelsState();
@@ -30,7 +37,6 @@ class _SecondPageModelsState extends State<SecondPageModels> {
                 elevation: 0,
                 leading: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
-                  // Adjust the left padding
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () {
@@ -43,9 +49,8 @@ class _SecondPageModelsState extends State<SecondPageModels> {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 24.0),
-                  // Adjust vertical alignment
                   child: Text(
-                    'MoneY',
+                    widget.title,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -57,6 +62,9 @@ class _SecondPageModelsState extends State<SecondPageModels> {
               ),
             ],
           ),
+        ),
+        body: Center(
+          child: widget.content,
         ),
       ),
     );
