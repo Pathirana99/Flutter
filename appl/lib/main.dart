@@ -1,12 +1,16 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import './screens/budget_page.dart';
+import './screens/summery_page.dart';
+import './screens/calender_page.dart';
+import './screens/note_page.dart';
 
 void main() {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
+      builder: (context) => const MyApp(), // Wrap your app
     ),
   );
 }
@@ -109,7 +113,7 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border(bottom: BorderSide(color: Colors.white)),
+                  border: const Border(bottom: BorderSide(color: Colors.white)),
                 ),
                 child: TextField(
                   onChanged: (value) {
@@ -117,13 +121,13 @@ class _HomeState extends State<Home> {
                       searchQuery = value;
                     });
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Search your day...',
                     hintStyle: TextStyle(color: Colors.white70),
-                    prefixIcon: const Icon(Icons.search, color: Colors.white),
+                    prefixIcon: Icon(Icons.search, color: Colors.white),
                     fillColor: Colors.transparent,
                     border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(
+                    contentPadding: EdgeInsets.symmetric(
                       vertical: 20,
                       horizontal: 16,
                     ),
@@ -132,7 +136,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: filteredData.length + 2,
@@ -186,31 +190,65 @@ class _HomeState extends State<Home> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 15),
-                    child: Container(
-                      height: 90,
-                      decoration: BoxDecoration(
-                        color: Colors.purple.shade800,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            filteredData[index]['icon'],
-                            color: filteredData[index]['iconColor'],
-                            size: 30,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            filteredData[index]['text'],
-                            style: TextStyle(
-                              color: filteredData[index]['textColor'] ,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
+                    child: InkWell(
+                      onTap: () {
+                        final String text = filteredData[index]['text'];
+                        if (text == 'Manage Your Money') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Budget(),
                             ),
-                          ),
-                        ],
+                          );
+                        } else if (text == 'Summery') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Summery(),
+                            ),
+                          );
+                        } else if (text == 'Calender') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calender(),
+                            ),
+                          );
+                        } else if (text == 'Notes') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Note(),
+                            ),
+                          );
+                        }
+                      },
+                      child: Container(
+                        height: 90,
+                        decoration: BoxDecoration(
+                          color: Colors.purple.shade800,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              filteredData[index]['icon'],
+                              color: filteredData[index]['iconColor'],
+                              size: 30,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              filteredData[index]['text'],
+                              style: TextStyle(
+                                color: filteredData[index]['textColor'],
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
