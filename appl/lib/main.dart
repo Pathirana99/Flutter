@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import './screens/budget_page.dart';
 
 void main() {
   runApp(
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final filteredData = rowData
         .where((item) =>
-        item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
+            item['text']!.toLowerCase().contains(searchQuery.toLowerCase()))
         .toList();
 
     return Container(
@@ -186,31 +187,44 @@ class _HomeState extends State<Home> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 15),
-                    child: Container(
-                      height: 90,
-                      decoration: BoxDecoration(
-                        color: Colors.purple.shade800,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            filteredData[index]['icon'],
-                            color: filteredData[index]['iconColor'],
-                            size: 30,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            filteredData[index]['text'],
-                            style: TextStyle(
-                              color: filteredData[index]['textColor'] ,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
+                    child: InkWell(
+                      onTap: () {
+                        if (filteredData[index]['text'] ==
+                            'Manage Your Money') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Budget(),
                             ),
-                          ),
-                        ],
+                          );
+                        }
+                      },
+                      child: Container(
+                        height: 90,
+                        decoration: BoxDecoration(
+                          color: Colors.purple.shade800,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              filteredData[index]['icon'],
+                              color: filteredData[index]['iconColor'],
+                              size: 30,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              filteredData[index]['text'],
+                              style: TextStyle(
+                                color: filteredData[index]['textColor'],
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
