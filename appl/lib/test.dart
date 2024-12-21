@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart'; // Required for input formatters
 import '../models/second_pages.dart';
 
 class Budget extends StatefulWidget {
@@ -10,9 +10,6 @@ class Budget extends StatefulWidget {
 }
 
 class _BudgetState extends State<Budget> {
-
-  double bal = 0.0;
-
   final List<String> categories = [
     'Income',
     'Foods',
@@ -22,11 +19,14 @@ class _BudgetState extends State<Budget> {
     'Savings',
   ];
 
+  // Controllers for each row
   final Map<int, TextEditingController> controllers = {};
+  double balance = 0.0;
 
   @override
   void initState() {
     super.initState();
+    // Initialize controllers for each row
     for (int i = 0; i < categories.length; i++) {
       controllers[i] = TextEditingController();
     }
@@ -34,12 +34,40 @@ class _BudgetState extends State<Budget> {
 
   @override
   void dispose() {
+    // Dispose controllers when no longer needed
     controllers.forEach((key, controller) {
       controller.dispose();
     });
     super.dispose();
   }
-  
+
+  // Method to calculate the balance
+  void _calculateBalance() {
+    double total = 0.0;
+
+    // Loop through each category and calculate balance
+    controllers.forEach((key, controller) {
+      double amount = double.tryParse(controller.text) ?? 0.0;
+
+      // If it's "Income", add to balance, else subtract
+      if (categories[key] == 'Income') {
+        total += amount;
+      } else {
+        total -= amount;
+      }
+    });
+
+    setState(() {
+      balance = total;
+    });
+  }
+
+  // Method to handle "Add" button
+  void _addTransaction() {
+    // This is where you'd handle the "Add" button logic if needed
+    _calculateBalance();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SecondPageModels(
@@ -51,6 +79,7 @@ class _BudgetState extends State<Budget> {
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
             child: Column(
               children: [
+                // Display the current balance
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Container(
@@ -62,8 +91,8 @@ class _BudgetState extends State<Budget> {
                     padding: const EdgeInsets.all(10),
                     child: Center(
                       child: Text(
-                        'Balance: \$${bal.toStringAsFixed(2)}',
-                        style: TextStyle(
+                        'Balance: \$${balance.toStringAsFixed(2)}',
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
@@ -72,6 +101,8 @@ class _BudgetState extends State<Budget> {
                     ),
                   ),
                 ),
+
+                // ListView for categories
                 Expanded(
                   child: ListView.builder(
                     itemCount: categories.length,
@@ -108,10 +139,12 @@ class _BudgetState extends State<Budget> {
                                     inputFormatters: [
                                       FilteringTextInputFormatter.digitsOnly,
                                     ],
+                                    onChanged: (value) {
+                                      _calculateBalance();
+                                    },
                                     decoration: const InputDecoration(
                                       hintText: 'Enter amount',
-                                      hintStyle:
-                                          TextStyle(color: Colors.white70),
+                                      hintStyle: TextStyle(color: Colors.white70),
                                       border: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
@@ -136,7 +169,7 @@ class _BudgetState extends State<Budget> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _addButton,
+          onPressed: _addTransaction,
           backgroundColor: Colors.blue.shade800,
           child: const Icon(Icons.add, color: Colors.white),
         ),
@@ -144,25 +177,4 @@ class _BudgetState extends State<Budget> {
       ),
     );
   }
-  
-  void _addButton() {
-    _calBal();
-  }
-
-  void _calBal() {
-    double tot = 0;
-    
-    controllers.forEach((a, cont){
-      double bal = double.tryParse(cont.text) ?? 0.0;
-      if (categories[a] == 'Income'){
-        tot += bal;
-      }else{
-        tot -= bal;
-      }
-    });
-    setState(() {
-      bal = tot;
-    });
-  }
 }
-
