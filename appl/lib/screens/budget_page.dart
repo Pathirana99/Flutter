@@ -153,8 +153,8 @@ class _BudgetState extends State<Budget> {
   }
 
   void _addButton() {
-    _calBal(); // Perform balance calculation
-    _clearFields(); // Clear all input fields
+    _calBal();
+    _clearFields();
   }
 
   void _calBal() {
