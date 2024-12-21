@@ -29,6 +29,7 @@ class _BudgetState extends State<Budget> {
   @override
   void initState() {
     super.initState();
+    loadBal();
     for (int i = 0; i < categories.length; i++) {
       controllers[i] = TextEditingController();
     }
@@ -64,7 +65,7 @@ class _BudgetState extends State<Budget> {
                     padding: const EdgeInsets.all(10),
                     child: Center(
                       child: Text(
-                        'Balance: \$${bal.toStringAsFixed(2)}',
+                        'Balance: \Rs ${bal.toStringAsFixed(2)}',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
