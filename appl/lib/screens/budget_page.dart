@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Required for input formatters
+import 'package:flutter/services.dart';
 import '../models/second_pages.dart';
 
 class Budget extends StatefulWidget {
@@ -19,13 +19,11 @@ class _BudgetState extends State<Budget> {
     'Savings',
   ];
 
-  // Controllers for each row
   final Map<int, TextEditingController> controllers = {};
 
   @override
   void initState() {
     super.initState();
-    // Initialize controllers for each row
     for (int i = 0; i < categories.length; i++) {
       controllers[i] = TextEditingController();
     }
@@ -33,7 +31,6 @@ class _BudgetState extends State<Budget> {
 
   @override
   void dispose() {
-    // Dispose controllers when no longer needed
     controllers.forEach((key, controller) {
       controller.dispose();
     });
