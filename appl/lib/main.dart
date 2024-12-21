@@ -5,6 +5,7 @@ import './screens/budget_page.dart';
 import './screens/summery_page.dart';
 import './screens/calender_page.dart';
 import './screens/note_page.dart';
+import './models/second_pages.dart';
 
 void main() {
   runApp(
