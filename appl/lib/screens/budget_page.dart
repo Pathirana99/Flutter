@@ -104,9 +104,10 @@ class _BudgetState extends State<Budget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Padding(
-                                padding: EdgeInsets.only(right: screenWidth * 0.02),
+                                padding:
+                                EdgeInsets.only(right: screenWidth * 0.02),
                                 child: SizedBox(
                                   width: screenWidth * 0.3,
                                   child: TextField(
@@ -152,7 +153,8 @@ class _BudgetState extends State<Budget> {
   }
 
   void _addButton() {
-    _calBal();
+    _calBal(); // Perform balance calculation
+    _clearFields(); // Clear all input fields
   }
 
   void _calBal() {
@@ -182,5 +184,11 @@ class _BudgetState extends State<Budget> {
   void saveBal(double bal) async {
     final last = await SharedPreferences.getInstance();
     last.setDouble('bal', bal);
+  }
+
+  void _clearFields() {
+    controllers.forEach((_, controller) {
+      controller.clear();
+    });
   }
 }
