@@ -72,7 +72,6 @@ class _BudgetState extends State<Budget> {
                     ),
                   ),
                 ),
-
                 Expanded(
                   child: ListView.builder(
                     itemCount: categories.length,
@@ -137,9 +136,7 @@ class _BudgetState extends State<Budget> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-
-          },
+          onPressed: () {},
           backgroundColor: Colors.blue.shade800,
           child: const Icon(Icons.add, color: Colors.white),
         ),
