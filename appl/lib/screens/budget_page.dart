@@ -44,96 +44,106 @@ class _BudgetState extends State<Budget> {
   Widget build(BuildContext context) {
     return SecondPageModels(
       title: 'MoneY',
-      content: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-          child: Column(
-            children: [
-              // Independent Row
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.blue.shade800,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Center( // Center the content both vertically and horizontally
-                    child: const Text(
-                      'Balance',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
+      content: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Container(
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade800,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: const Center(
+                      child: Text(
+                        'Balance',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
 
-              // ListView for the remaining rows
-              Expanded(
-                child: ListView.builder(
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: Container(
-                        height: 90,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade800,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const SizedBox(width: 10),
-                            Text(
-                              categories[index],
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: Container(
+                          height: 90,
+                          decoration: BoxDecoration(
+                            color: Colors.purple.shade800,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const SizedBox(width: 10),
+                              Text(
+                                categories[index],
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: SizedBox(
-                                width: 100,
-                                child: TextField(
-                                  controller: controllers[index],
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.digitsOnly,
-                                  ],
-                                  decoration: const InputDecoration(
-                                    hintText: 'Enter amount',
-                                    hintStyle: TextStyle(color: Colors.white70),
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                  ),
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
+                              const Spacer(),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10.0),
+                                child: SizedBox(
+                                  width: 100,
+                                  child: TextField(
+                                    controller: controllers[index],
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly,
+                                    ],
+                                    decoration: const InputDecoration(
+                                      hintText: 'Enter amount',
+                                      hintStyle:
+                                          TextStyle(color: Colors.white70),
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                    ),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+
+          },
+          backgroundColor: Colors.blue.shade800,
+          child: const Icon(Icons.add, color: Colors.white),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }
