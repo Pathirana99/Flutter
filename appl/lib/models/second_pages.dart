@@ -20,7 +20,7 @@ class _SecondPageModelsState extends State<SecondPageModels> {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue,Colors.white70, Colors.blue],
+            colors: [Colors.blue,Colors.white, Colors.blue],
             begin: Alignment.bottomCenter, // Gradient starts from the bottom
             end: Alignment.topCenter, // Gradient ends at the top
             stops: [0, 0.73,0.76], // Adjust stop points to control the gradient's appearance
