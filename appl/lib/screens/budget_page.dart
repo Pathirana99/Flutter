@@ -177,7 +177,7 @@ class _BudgetState extends State<Budget> {
   }
 
   void saveBal(double bal) async{
-    var last = await SharedPreferences.getInstance();
+    final last = await SharedPreferences.getInstance();
     last.setDouble('bal', bal);
   }
 }
