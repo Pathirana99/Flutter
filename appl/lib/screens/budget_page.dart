@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/second_pages.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class Budget extends StatefulWidget {
   const Budget({super.key});
@@ -150,19 +152,32 @@ class _BudgetState extends State<Budget> {
   }
 
   void _calBal() {
-    double tot = 0;
+    double tot = bal;
     
     controllers.forEach((a, cont){
-      double bal = double.tryParse(cont.text) ?? 0.0;
+      double enterAmounter = double.tryParse(cont.text) ?? 0.0;
       if (categories[a] == 'Income'){
-        tot += bal;
+        tot += enterAmounter;
       }else{
-        tot -= bal;
+        tot -= enterAmounter;
       }
     });
     setState(() {
       bal = tot;
     });
+    saveBal(tot);
+  }
+
+  void loadBal() async{
+    final lastbal = await SharedPreferences.getInstance();
+    setState(() {
+      bal = lastbal.getDouble('bal')?? 0.0;
+    });
+  }
+
+  void saveBal(double bal) async{
+    var last = await SharedPreferences.getInstance();
+    last.setDouble('bal', bal);
   }
 }
 
