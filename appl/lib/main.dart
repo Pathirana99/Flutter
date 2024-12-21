@@ -65,8 +65,8 @@ class _HomeState extends State<Home> {
     {
       'icon': Icons.note_alt_outlined,
       'text': 'Notes',
-      'iconColor': Color(0xFF007BFF),
-      'textColor': Color(0xFF007BFF),
+      'iconColor': Color(0xFF00FFF8),
+      'textColor': Color(0xFF00FFF8),
     },
   ];
 
@@ -81,12 +81,13 @@ class _HomeState extends State<Home> {
 
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.deepPurple, Colors.purple, Colors.deepPurple],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: [0.01, 0.5, 1],
-        ),
+          gradient: LinearGradient(
+            colors: [Colors.blue,Colors.white70, Colors.blue],
+            begin: Alignment.bottomCenter, // Gradient starts from the bottom
+            end: Alignment.topCenter, // Gradient ends at the top
+            stops: [0, 0.73,0.76], // Adjust stop points to control the gradient's appearance
+          )
+
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -114,8 +115,12 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
-                  border: const Border(bottom: BorderSide(color: Colors.white)),
+                  border: Border.all(
+                    color: Colors.white,  // Border color
+                    width: 1.0,           // Border width
+                  ),
                 ),
+
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
@@ -148,7 +153,7 @@ class _HomeState extends State<Home> {
                     return Container(
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.purple.shade800,
+                        color: Colors.blue.shade800,
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(16),
                           topRight: Radius.circular(16),
@@ -227,7 +232,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         height: 90,
                         decoration: BoxDecoration(
-                          color: Colors.purple.shade800,
+                          color: Colors.blue.shade600,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(10),

@@ -19,12 +19,12 @@ class _SecondPageModelsState extends State<SecondPageModels> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.deepPurple, Colors.purple, Colors.deepPurple],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: [0.01, 0.5, 1],
-        ),
+          gradient: LinearGradient(
+            colors: [Colors.blue,Colors.white70, Colors.blue],
+            begin: Alignment.bottomCenter, // Gradient starts from the bottom
+            end: Alignment.topCenter, // Gradient ends at the top
+            stops: [0, 0.73,0.76], // Adjust stop points to control the gradient's appearance
+          )
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,

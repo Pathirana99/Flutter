@@ -59,16 +59,16 @@ class _BudgetState extends State<Budget> {
                   child: Container(
                     height: 90,
                     decoration: BoxDecoration(
-                      color: Colors.blue.shade800,
+                      color: Color(0x9846F1EC),
                       borderRadius: BorderRadius.circular(16),
                     ),
+
                     padding: const EdgeInsets.all(10),
                     child: Center(
                       child: Text(
                         'Balance: \Rs ${bal.toStringAsFixed(2)}',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
+                          color: Color(0xFFE10505),                          fontSize: 24,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -84,7 +84,7 @@ class _BudgetState extends State<Budget> {
                         child: Container(
                           height: 90,
                           decoration: BoxDecoration(
-                            color: Colors.purple.shade800,
+                            color: Colors.blue.shade800,
                             borderRadius: BorderRadius.circular(16),
                           ),
                           padding: const EdgeInsets.all(10),
