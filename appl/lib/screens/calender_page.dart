@@ -15,15 +15,21 @@ class _CalenderState extends State<Calender> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SecondPageModels(
       title: 'Calender',
       content: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        padding: EdgeInsets.symmetric(
+          vertical: screenHeight * 0.02,
+          horizontal: screenWidth * 0.05,
+        ),
         child: Column(
           children: [
             TableCalendar(
               firstDay: DateTime.utc(2000, 1, 1),
-              lastDay: DateTime.utc(2048, 12, 12),
+              lastDay: DateTime.utc(2048, 12, 31),
               focusedDay: _focusedDay,
               calendarFormat: CalendarFormat.month,
               selectedDayPredicate: (day) {
@@ -35,33 +41,77 @@ class _CalenderState extends State<Calender> {
                   _focusedDay = focusedDay;
                 });
               },
-              headerStyle: const HeaderStyle(
+              headerStyle: HeaderStyle(
                 formatButtonVisible: false,
                 titleCentered: true,
                 titleTextStyle: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: screenWidth * 0.05,
                   fontWeight: FontWeight.bold,
                 ),
-                leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white),
-                rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),
+                leftChevronIcon: Icon(
+                  Icons.chevron_left,
+                  color: Colors.white,
+                  size: screenWidth * 0.06,
+                ),
+                rightChevronIcon: Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                  size: screenWidth * 0.06,
+                ),
               ),
-              calendarStyle: const CalendarStyle(
-                weekendTextStyle: TextStyle(color: Colors.red),
-                todayDecoration: BoxDecoration(
+              calendarStyle: CalendarStyle(
+                weekendTextStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: screenWidth * 0.04,
+                ),
+                todayDecoration: const BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.circle,
                 ),
-                selectedDecoration: BoxDecoration(
+                selectedDecoration: const BoxDecoration(
                   color: Colors.green,
                   shape: BoxShape.circle,
                 ),
-                outsideTextStyle: TextStyle(color: Colors.grey),
-                defaultTextStyle: TextStyle(color: Colors.black),
+                outsideTextStyle: TextStyle(
+                  color: Colors.grey,
+                  fontSize: screenWidth * 0.035,
+                ),
+                defaultTextStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: screenWidth * 0.04,
+                ),
               ),
-              daysOfWeekStyle: const DaysOfWeekStyle(
-                weekdayStyle: TextStyle(color: Color(0xFFF8F40B),),
-                weekendStyle: TextStyle(color: Colors.red),
+              daysOfWeekStyle: DaysOfWeekStyle(
+                weekdayStyle: TextStyle(
+                  color: const Color(0xFFF8F40B),
+                  fontSize: screenWidth * 0.04,
+                ),
+                weekendStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: screenWidth * 0.04,
+                ),
+              ),
+            ),
+
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue.shade800,
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.3,
+                  vertical: screenHeight * 0.02,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                ),
+              ),
+              child: Text(
+                "Note",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: screenWidth * 0.05, // Responsive text size
+                ),
               ),
             ),
           ],
