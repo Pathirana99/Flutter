@@ -12,7 +12,7 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     return SecondPageModels(
-      title: 'Pg1',
+      title: 'Calender',
       content: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

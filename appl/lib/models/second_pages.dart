@@ -17,28 +17,35 @@ class SecondPageModels extends StatefulWidget {
 class _SecondPageModelsState extends State<SecondPageModels> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.deepPurple, Colors.purple, Colors.deepPurple],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: [0.01, 0.5, 1],
+          colors: [Colors.blue, Colors.white, Colors.blue],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          stops: [0, 0.73, 0.76],
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
+          preferredSize: Size.fromHeight(screenHeight * 0.08),
           child: Stack(
             children: [
               AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 leading: Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(left: screenWidth * 0.03),
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: screenWidth * 0.07,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -48,12 +55,12 @@ class _SecondPageModelsState extends State<SecondPageModels> {
               Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
+                  padding: EdgeInsets.only(top: screenHeight * 0.03),
                   child: Text(
                     widget.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: screenWidth * 0.08,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                     ),
@@ -64,7 +71,10 @@ class _SecondPageModelsState extends State<SecondPageModels> {
           ),
         ),
         body: Center(
-          child: widget.content,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+            child: widget.content,
+          ),
         ),
       ),
     );
