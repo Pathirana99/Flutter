@@ -110,7 +110,7 @@ class _CalenderState extends State<Calender> {
                 "Note",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: screenWidth * 0.05, // Responsive text size
+                  fontSize: screenWidth * 0.05,
                 ),
               ),
             ),
